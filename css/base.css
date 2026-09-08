@@ -1,0 +1,107 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-fg);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+button { font-family: inherit; cursor: pointer; }
+
+.wrap {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-brand);
+}
+
+.h-display {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.045em;
+  word-spacing: 0.1em;
+  line-height: 1.08;
+  margin: 0;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.045em;
+  word-spacing: 0.12em;
+  font-size: clamp(1.9rem, 4vw, 3.5rem);
+  line-height: 1.05;
+  margin: 0 0 var(--space-3);
+}
+
+.section-sub {
+  color: var(--color-fg-muted);
+  font-size: 1.1rem;
+  max-width: 50ch;
+  margin: 0 0 var(--space-6);
+}
+
+.section-sub.on-dark { color: var(--color-fg-muted-inverse); }
+
+section { position: relative; }
+
+.pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.9rem 1.6rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-brand);
+  color: var(--white-000);
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: none;
+  min-height: 44px;
+  transition: transform var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
+}
+.pill-btn:hover { background: var(--color-brand-strong); transform: translateY(-2px); }
+
+.pill-btn.ghost {
+  background: transparent;
+  border: 2px solid var(--black-900);
+  color: var(--black-900);
+}
+.pill-btn.ghost:hover { background: var(--black-900); color: var(--white-000); }
+
+.pill-btn.on-dark.ghost {
+  border-color: var(--white-000);
+  color: var(--white-000);
+}
+.pill-btn.on-dark.ghost:hover { background: var(--white-000); color: var(--black-900); }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
